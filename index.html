@@ -30,6 +30,22 @@
         hr {
             border: 1px solid #ddd;
         }
+
+        .contact-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .contact-card {
+            width: 48%;
+            /* Adjust the width as needed */
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            box-sizing: border-box;
+        }
     </style>
 </head>
 
@@ -78,8 +94,13 @@
                     // Use Showdown to convert each Markdown content to HTML
                     const htmlContent = converter.makeHtml(md_json_decoded);
 
-                    //Gather all converted MD contact cards
-                    htmlContents.push(htmlContent);
+                    // Create a container for each contact card
+                    const contactCardContainer = document.createElement('div');
+                    contactCardContainer.classList.add('contact-card');
+                    contactCardContainer.innerHTML = htmlContent;
+
+                    // Append the contact card container to the .contact-cards div
+                    document.querySelector('.contact-cards').appendChild(contactCardContainer);
 
                     // Check if this is the last file, then insert the converted HTML into the .contact-cards div
                     if (htmlContents.length === files.length) {
