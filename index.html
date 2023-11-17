@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Cards Page</title>
+
+    <!-- Include Showdown.js -->
+    <script src="https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        h1 {
+            color: #0e4985;
+            font-family: 'Arial Black', sans-serif;
+        }
+
+        p {
+            color: #555;
+        }
+
+        hr {
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Contact Cards</h1>
+
+    <p>Welcome to our contact cards page! Please consider adding your contact card by submitting a pull request.</p>
+
+    <hr>
+
+    <div class="contact-cards">
+        <!-- Contact cards will be dynamically inserted here -->
+    </div>
+
+    <script>
+        // Use fetch or another method to get a list of Markdown files in the folder
+        // Update the code to suit your needs
+        fetch('https://api.github.com/repos/w4dd325/let-me-speak/contents/contacts')
+            .then(response => response.json())
+            .then(data => {
+
+                // Get names of all md files
+                const files = data.map(item => item.name);
+                //console.log(files);
+
+                // Call the fetchAndRender function with the list of files
+                fetchAndRender(files);
+            });
+
+        async function fetchAndRender(files) {
+            const htmlContents = [];
+
+            try {
+                // Use forEach to iterate over each file
+                files.forEach(async (file) => {
+                    // Get MD file JSON
+                    const response = await fetch(`https://api.github.com/repos/w4dd325/let-me-speak/contents/contacts/${file}`);
+                    const md_json = await response.json();
+                    // Decode content with base64
+                    const md_json_decoded = atob(md_json.content);
+
+                    //Declare new Showdown converter
+                    const converter = new showdown.Converter();
+                    // Use Showdown to convert each Markdown content to HTML
+                    const htmlContent = converter.makeHtml(md_json_decoded);
+
+                    //Gather all converted MD contact cards
+                    htmlContents.push(htmlContent);
+
+                    // Check if this is the last file, then insert the converted HTML into the .contact-cards div
+                    if (htmlContents.length === files.length) {
+                        document.querySelector('.contact-cards').innerHTML = htmlContents.join('<hr>');
+                    }
+                });
+            } catch (error) {
+                console.error('Error fetching or rendering content:', error);
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>
