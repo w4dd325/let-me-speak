@@ -1,10 +1,11 @@
-<!-- contact-cards/template.md -->
-
-## Name
+### Name
 Your Name
 
-## Email
+### Email
 your.email@example.com
 
-## GitHub
+### GitHub
 [GitHub Profile](https://github.com/your-username)
+
+### Tags
+Testing, apps, stuff

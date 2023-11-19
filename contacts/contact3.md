@@ -1,10 +1,11 @@
-<!-- contact-cards/template.md -->
+### Name
+Freddie Mercury
 
-## Name
-Test User
+### Email
+legend@example.com
 
-## Email
-test-user-email@example.com
-
-## GitHub
+### GitHub
 [GitHub Profile](https://github.com/your-username)
+
+### Tags
+singing, queen, stuff

@@ -1,10 +1,11 @@
-<!-- contact-cards/template.md -->
+### Name
+Chuck Norris
 
-## Name
-Your Name 2
+### Email
+norris@example.com
 
-## Email
-your.email2@example.com
-
-## GitHub
+### GitHub
 [GitHub Profile](https://github.com/your-username)
+
+### Tags
+Testing, kciking
