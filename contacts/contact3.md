@@ -8,4 +8,4 @@ legend@example.com
 [GitHub Profile](https://github.com/your-username)
 
 ### Tags
-singing, queen, stuff
+[singing, queen, stuff]
