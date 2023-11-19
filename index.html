@@ -124,7 +124,7 @@
                         const tagsMatch = htmlContent.match(/<h3 id="tags">Tags<\/h3>\n<p>(.*?)<\/p>/g);
 
                         if (tagsMatch) {
-                            const contentInsideBrackets = tagsMatch[0].match(/\[(.*?)\]/)[1];
+                            const contentInsideBrackets = tagsMatch[0].match(/(.*?)/)[1];
                             const individualTags = contentInsideBrackets.split(', ').map(tag => tag.trim());
                             tags.push(...individualTags);
                         }
