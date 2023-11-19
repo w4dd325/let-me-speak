@@ -8,4 +8,4 @@ your.email@example.com
 [GitHub Profile](https://github.com/your-username)
 
 ### Tags
-Testing, apps, stuff
+[Testing, apps, stuff]
