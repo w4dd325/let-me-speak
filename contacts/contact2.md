@@ -8,4 +8,4 @@ norris@example.com
 [GitHub Profile](https://github.com/your-username)
 
 ### Tags
-[Testing, kciking]
+Testing, kicking
